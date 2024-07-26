@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "323556686750",
+    "firebase_url": "https://mcoe-b51e7-default-rtdb.firebaseio.com",
+    "project_id": "mcoe-b51e7",
+    "storage_bucket": "mcoe-b51e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323556686750:android:a5f50678e3c30b9d4eb48f",
+        "android_client_info": {
+          "package_name": "com.ermayurmahajan.adminbrilliantscienceclass"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1ZrTh-a_U3RwQW4AzFfP7s2YWShKdIV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323556686750:android:83a497e1305eabc04eb48f",
+        "android_client_info": {
+          "package_name": "com.ermayurmahajan.mcoeadminapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1ZrTh-a_U3RwQW4AzFfP7s2YWShKdIV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323556686750:android:32eae4f42b04e1104eb48f",
+        "android_client_info": {
+          "package_name": "com.ermayurmahajan.mcoestudentapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1ZrTh-a_U3RwQW4AzFfP7s2YWShKdIV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

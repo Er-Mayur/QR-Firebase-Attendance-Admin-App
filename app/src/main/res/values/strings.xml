@@ -1,0 +1,159 @@
+<resources>
+    <string name="app_name">MCOE Admin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pes_modern_college_pune">PES Modern College Pune</string>
+
+    <string-array name="Year_list">
+        <item>Year</item>
+        <item>FE</item>
+        <item>SE</item>
+        <item>TE</item>
+        <item>BE</item>
+    </string-array>
+
+    <string-array name="Select_list">
+        <item>Select</item>
+        <item>Lecture</item>
+        <item>Practical</item>
+    </string-array>
+
+    <string-array name="SEM_list">
+        <item>SEM</item>
+    </string-array>
+
+    <string-array name="FE_SEM_list">
+        <item>SEM</item>
+        <item>SEM-1</item>
+        <item>SEM-2</item>
+    </string-array>
+    <string-array name="SE_SEM_list">
+        <item>SEM</item>
+        <item>SEM-3</item>
+        <item>SEM-4</item>
+    </string-array>
+    <string-array name="TE_SEM_list">
+        <item>SEM</item>
+        <item>SEM-5</item>
+        <item>SEM-6</item>
+    </string-array>
+    <string-array name="BE_SEM_list">
+        <item>SEM</item>
+        <item>SEM-7</item>
+        <item>SEM-8</item>
+    </string-array>
+
+    <string-array name="Subject_list">
+        <item>Subject</item>
+    </string-array>
+
+    <string-array name="SEM1_Subject_list">
+        <item>Subject</item>
+        <item>M1</item>
+        <item>EC</item>
+        <item>SME</item>
+        <item>BEE</item>
+        <item>PPS</item>
+    </string-array>
+    <string-array name="SEM2_Subject_list">
+        <item>Subject</item>
+        <item>M2</item>
+        <item>EP</item>
+        <item>BXE</item>
+        <item>EM</item>
+        <item>EG</item>
+    </string-array>
+    <string-array name="SEM3_Subject_list">
+        <item>Subject</item>
+        <item>DM</item>
+        <item>DSA</item>
+        <item>CN</item>
+        <item>OOP</item>
+        <item>SE</item>
+    </string-array>
+    <string-array name="SEM4_Subject_list">
+        <item>Subject</item>
+        <item>AM|M3</item>
+        <item>OS</item>
+        <item>FAIML</item>
+        <item>DBMS</item>
+        <item>CG</item>
+    </string-array>
+    <string-array name="SEM5_Subject_list">
+        <item>Subject</item>
+        <item>DAA</item>
+        <item>IoT_AI</item>
+        <item>WT</item>
+        <item>ME_IT</item>
+        <item>Elective_I</item>
+    </string-array>
+    <string-array name="SEM6_Subject_list">
+        <item>Subject</item>
+        <item>MIDS</item>
+        <item>DMW</item>
+        <item>ANN</item>
+        <item>Elective_II</item>
+    </string-array>
+    <string-array name="SEM7_Subject_list">
+        <item>Subject</item>
+        <item>IR_AI</item>
+        <item>CC</item>
+        <item>DL_AI</item>
+        <item>Elective_III</item>
+        <item>Elective_IV</item>
+    </string-array>
+    <string-array name="SEM8_Subject_list">
+        <item>Subject</item>
+        <item>NLP</item>
+        <item>Elective_V</item>
+        <item>Elective_VI</item>
+    </string-array>
+
+    <string-array name="SEM1_Practical_list">
+        <item>Subject</item>
+        <item>ECL</item>
+        <item>SMEL</item>
+        <item>BEEL</item>
+        <item>PPSL</item>
+        <item>Workshop</item>
+    </string-array>
+    <string-array name="SEM2_Practical_list">
+        <item>Subject</item>
+        <item>EPl</item>
+        <item>BXEl</item>
+        <item>EMl</item>
+        <item>PBL</item>
+    </string-array>
+    <string-array name="SEM3_Practical_list">
+        <item>Subject</item>
+        <item>DSAL</item>
+        <item>OOPL</item>
+        <item>CNL</item>
+    </string-array>
+    <string-array name="SEM4_Practical_list">
+        <item>Subject</item>
+        <item>OSL</item>
+        <item>CGL</item>
+        <item>DBMSL</item>
+    </string-array>
+    <string-array name="SEM5_Practical_list">
+        <item>Subject</item>
+        <item>IoT_AIL</item>
+        <item>WTL</item>
+    </string-array>
+    <string-array name="SEM6_Practical_list">
+        <item>Subject</item>
+        <item>MIDSL</item>
+        <item>DMWL</item>
+    </string-array>
+    <string-array name="SEM7_Practical_list">
+        <item>Subject</item>
+        <item>Lab_Practical_IV</item>
+    </string-array>
+    <string-array name="SEM8_Practical_list">
+        <item>Subject</item>
+        <item>Lab_Practical_IV</item>
+    </string-array>
+
+
+</resources>

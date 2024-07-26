@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScannerActivity">
+
+    <com.journeyapps.barcodescanner.DecoratedBarcodeView
+        android:id="@+id/QR_scanner"
+        android:layout_width="match_parent"
+        android:layout_height="545dp"
+        android:focusable="auto"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_attendance_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/QR_scanner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:drawableStart="@drawable/baseline_cloud_done_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/white"
+        android:padding="10dp"
+        android:clickable="true"
+        app:cardElevation="35dp"
+        android:background="@drawable/button_background"
+        android:text="Attendance Done"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

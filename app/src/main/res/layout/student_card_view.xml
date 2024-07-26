@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/main_card_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="80dp">
+
+        <RelativeLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_alignRight="@+id/gray_line">
+
+                <TextView
+                    android:id="@+id/txt_roll_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roll No"
+                    android:layout_marginBottom="15dp"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/txt_batch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Batch"
+                    android:drawablePadding="5dp"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/gray_line"
+                android:layout_width="1dp"
+                android:layout_height="90dp"
+                android:background="@color/primary"
+                android:layout_marginLeft="105dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/gray_line">
+                <TextView
+                    android:id="@+id/txt_student_full_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:maxLines="1"
+                    android:text="Student Full Name"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/outline_person_outline_24"
+                    android:drawablePadding="5dp"/>
+
+                <TextView
+                    android:id="@+id/txt_student_mobile_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Student Mobile Number"
+                    android:drawableStart="@drawable/outline_phone_iphone_24"
+                    android:drawablePadding="5dp"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

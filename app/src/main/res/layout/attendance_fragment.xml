@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AttendanceFragment">
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- TODO: Update blank fragment layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/lin_academic_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/attence_img"/>
+
+                <EditText
+                    android:id="@+id/edt_academic_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_calendar_month_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Academic Year 202X-2X"
+                    android:maxLength="7"
+                    android:inputType="date"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_date_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/lin_academic_year">
+
+                <EditText
+                    android:id="@+id/edt_current_date"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_calendar_month_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Date"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:importantForAutofill="no"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp"
+                    android:layout_marginRight="20dp"/>
+
+                <Spinner
+                    android:id="@+id/spn_year"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/lin_date_class">
+
+                <Spinner
+                    android:id="@+id/spn_select"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:layout_marginRight="20dp"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spn_SEM"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <Spinner
+                android:id="@+id/spn_subject"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/spinner_background"
+                android:drawableTint="@color/black"
+                android:padding="5dp"
+                android:paddingStart="10dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/lin_class"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_take_attendance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@+id/spn_subject"
+                android:drawableStart="@drawable/outline_qr_code_scanner_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:padding="10dp"
+                android:clickable="true"
+                app:cardElevation="35dp"
+                android:background="@drawable/button_background"
+                android:text="Take Attendance"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

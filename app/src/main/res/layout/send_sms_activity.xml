@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SendSMSActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/lin_academic_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    android:paddingTop="19dp"
+                    android:paddingBottom="25dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:src="@drawable/send_sms"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/txt_send_SMS_to_absent_student"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="@color/black"
+                    android:text="Send SMS to absent student"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/edt_academic_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_calendar_month_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Academic Year 202X-2X"
+                    android:maxLength="7"
+                    android:inputType="date"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_date_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/lin_academic_year">
+
+                <EditText
+                    android:id="@+id/edt_current_date"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_calendar_month_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Date"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:importantForAutofill="no"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp"
+                    android:layout_marginRight="20dp"/>
+
+                <Spinner
+                    android:id="@+id/spn_year"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/lin_date_class">
+
+                <Spinner
+                    android:id="@+id/spn_SEM"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:layout_marginRight="20dp"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spn_subject"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_send_SMS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@+id/lin_class"
+                android:drawableStart="@drawable/outline_email_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:padding="10dp"
+                android:clickable="true"
+                app:cardElevation="35dp"
+                android:background="@drawable/button_background"
+                android:text="Send SMS"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

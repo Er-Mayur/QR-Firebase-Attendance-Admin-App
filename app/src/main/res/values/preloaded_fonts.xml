@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/fredericka_the_great</item>
+        <item>@font/lemon</item>
+        <item>@font/ruslan_display</item>
+        <item>@font/train_one</item>
+    </array>
+</resources>
