@@ -38,9 +38,12 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity  {
 
     private static final String TAG = "MainActivity";
-    private FirebaseDatabase database;
-    private DatabaseReference studentsRef;
+
     private FirebaseAuth authProfile;
+    private FirebaseDatabase database;
+    private DatabaseReference teachersRef;
+    DatabaseReference userRef;
+
     private ActivityMainBinding binding;
     private Animation fadeIn;
     private Animation bottomDown;
@@ -56,10 +59,12 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        database = FirebaseDatabase.getInstance();
-        studentsRef = database.getReference("Registered Users");
+
 
         getSupportActionBar().hide();
+        database = FirebaseDatabase.getInstance();
+        teachersRef = database.getReference("Teachers");
+
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
         fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
@@ -72,6 +77,7 @@ public class MainActivity extends AppCompatActivity  {
             public void run() {
                 binding.cardView1.setAnimation(fadeIn);
                 binding.cardView2.setAnimation(fadeIn);
+                binding.registerLayout.setAnimation(fadeIn);
             }
         };
         handler.postDelayed(runnable, 1000);
@@ -123,9 +129,6 @@ public class MainActivity extends AppCompatActivity  {
                 }else if (TextUtils.isEmpty(textPassword)) {
                     edtLoginPassword.setError("Enter Your Password");
                     edtLoginPassword.requestFocus();
-                }else if (!textEmail.equals("admin_pes_modern@gmail.com")) {
-                    edtLoginEmail.setError("This app only for admin");
-                    edtLoginEmail.requestFocus();
                 }else {
                     loading.setVisibility(View.VISIBLE);
                     loginUser(textEmail, textPassword);
@@ -140,13 +143,27 @@ public class MainActivity extends AppCompatActivity  {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     FirebaseUser firebaseUser = authProfile.getCurrentUser();
-                    Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                    //Open user profile after successful registration
-                    Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
-                    //To Prevent user from returning back to register Activity on pressing back button after registration
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish(); // to close Register Activity
+
+                    userRef = teachersRef.child("AIML");
+                    // Retrieve the user role from the database
+                    assert firebaseUser != null;
+                    userRef.child(firebaseUser.getUid()).get()
+                            .addOnCompleteListener(roleTask -> {
+                                if (roleTask.isSuccessful() && roleTask.getResult().exists()) {
+                                    Toast.makeText(MainActivity.this, "Login successful: user is a teacher", Toast.LENGTH_SHORT).show();
+                                    //Open user profile after successful registration
+                                    Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
+                                    //To Prevent user from returning back to register Activity on pressing back button after registration
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    finish(); // to close Register Activity
+
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Login failed: User is not a teacher", Toast.LENGTH_SHORT).show();
+                                    FirebaseAuth.getInstance().signOut();
+                                }
+                            });
+
                 }else {
                     try {
                         throw task.getException();
@@ -163,6 +180,10 @@ public class MainActivity extends AppCompatActivity  {
                 }loading.setVisibility(View.GONE);
             }
         });
+    }
+    public void registerActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent);
     }
     //If user is already login
     @Override

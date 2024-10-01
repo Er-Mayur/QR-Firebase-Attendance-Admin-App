@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/Rtop_linear_Layout"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@drawable/up_design"
+                android:orientation="vertical" />
+
+            <TextView
+                android:id="@+id/Rtxt_pes_modern_collage_pune"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:padding="5dp"
+                android:gravity="center_horizontal"
+                android:text="@string/welcome_to_pes_modern_collage_pune"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Rcard_view1"
+                android:layout_width="140dp"
+                android:layout_height="90dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="195dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="31dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/card_background">
+
+                    <ImageView
+                        android:id="@+id/Rimg_logo"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:paddingBottom="15dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/aiml_icon">
+
+                    </ImageView>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Rcard_view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginEnd="15dp"
+                app:cardElevation="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/top_linear_Layout"
+                    android:layout_marginTop="50dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_register"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/register"
+                        android:textColor="@color/black"
+                        android:textSize="40dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edt_teacher_full_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/edit_text_background"
+                        android:drawableStart="@drawable/outline_person_outline_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:hint="@string/teacher_full_name"
+                        android:inputType="textPersonName"
+                        android:padding="5dp"
+                        android:paddingStart="10dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/edt_DOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/edit_text_background"
+                        android:drawableStart="@drawable/outline_cake_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:focusable="false"
+                        android:hint="DOB:- DD/MM/YYYY"
+                        android:inputType="date"
+                        android:padding="5dp"
+                        android:paddingStart="10dp"
+                        android:textSize="16sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rad_btn_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rad_btn_male"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="Male" />
+
+                        <RadioButton
+                            android:id="@+id/rad_btn_female"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:checked="false"
+                            android:text="Female" />
+                    </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/edt_teacher_mobile_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/edit_text_background"
+                        android:drawableStart="@drawable/outline_phone_iphone_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:hint="@string/teacher_mobile_number"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:padding="5dp"
+                        android:paddingStart="10dp"
+                        android:textSize="16sp" />
+
+
+
+                    <EditText
+                        android:id="@+id/edt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/edit_text_background"
+                        android:drawableStart="@drawable/outline_email_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:padding="5dp"
+                        android:paddingStart="10dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/edt_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/edit_text_background"
+                        android:drawableStart="@drawable/outline_lock_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:paddingStart="10dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/edt_confirm_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/edit_text_background"
+                        android:drawableStart="@drawable/outline_lock_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/black"
+                        android:hint="Confirm Password"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:paddingStart="10dp"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/edt_invisible"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:drawableTint="@color/black"
+                        android:paddingStart="10dp"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/img_register_show_hide_password"
+                    android:layout_width="30dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="408dp"
+                    android:layout_marginRight="55dp" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_register"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Rcard_view2"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:clickable="true"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:cardElevation="35dp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading.json"
+        app:lottie_loop="true" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

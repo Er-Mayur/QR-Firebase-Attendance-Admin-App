@@ -163,18 +163,44 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/register_layout"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/register_button_background"
                 android:onClick="registerActivity"
                 android:visibility="invisible"
                 android:layout_below="@+id/card_view2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="40dp">
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Register"
+                    android:textColor="@color/black"
+                    android:textSize="22dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_fileName="arrow_right_anim.json"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </RelativeLayout>
     </ScrollView>
@@ -193,4 +219,6 @@
         app:lottie_autoPlay="true"
         app:lottie_fileName="loading.json"
         app:lottie_loop="true" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
