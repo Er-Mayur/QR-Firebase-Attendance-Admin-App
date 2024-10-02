@@ -25,10 +25,21 @@ public class AdminMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_main_activity);
 
-        getSupportActionBar().setTitle("Attendance");
+
         authProfile = FirebaseAuth.getInstance();
         //bottom navigation bar
         bottomNavView = findViewById(R.id.bottomNavView);
+
+        // Get the Intent that started this activity
+        Intent intent = getIntent();
+        // Create a Bundle to hold your data
+        Bundle bundle = new Bundle();
+        getSupportActionBar().setTitle(intent.getStringExtra("textClassName"));
+        bundle.putString("classroomID", intent.getStringExtra("classroomID")); // Example for a String
+        bundle.putString("textAcademicYear", intent.getStringExtra("textAcademicYear")); // Example for a String
+        bundle.putString("textYear", intent.getStringExtra("textYear")); // Example for a String
+
+
 
         // Restoring selected item from saved state
         if (savedInstanceState != null) {
@@ -40,19 +51,24 @@ public class AdminMainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 int itemID = item.getItemId();
                 if (itemID == R.id.menu_attendance) {
-                    startFragment(new AttendanceFragment(),"Attendance");
+                    // Create a new instance of the AttendanceFragment
+                    AttendanceFragment attendanceFragment = new AttendanceFragment();
+                    // Set the arguments to the fragment
+                    attendanceFragment.setArguments(bundle);
+                    startFragment(attendanceFragment);
                 } else if (itemID == R.id.menu_class_info) {
-                    startFragment(new ClassInfoFragment(),"Class Info");
+                    ClassInfoFragment classInfoFragment = new ClassInfoFragment();
+                    classInfoFragment.setArguments(bundle);
+                    startFragment(classInfoFragment);
                 }
                 return true;
             }
 
         });
-       bottomNavView.setSelectedItemId(R.id.menu_attendance);
+       bottomNavView.setSelectedItemId(R.id.menu_class_info);
     }
 
-    public void startFragment(Fragment fragment, String title){
-        getSupportActionBar().setTitle(title);
+    public void startFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);

@@ -106,15 +106,18 @@ public class ClassMainActivity extends AppCompatActivity {
                         String details = classroomSnapshot.child("details").getValue(String.class);
                         String year = classroomSnapshot.child("year").getValue(String.class);
                         String subjectName = classroomSnapshot.child("subject").getValue(String.class);
+                        String academicYear = classroomSnapshot.child("academicYear").getValue(String.class);
                         String classroomID = classroomSnapshot.getKey(); // Get the classroom ID
 
                         // Create a ClassListModel instance and add it to the arrayListModel
-                        arrayListModel.add(new ClassListModel(classroomID, className, details, year,subjectName));// Modify according to your ClassListModel constructor
+                        arrayListModel.add(new ClassListModel(classroomID, className, details, year,subjectName,academicYear));// Modify according to your ClassListModel constructor
                         loading.setVisibility(View.GONE);
                     }
                     adapter.notifyDataSetChanged(); // Notify the adapter of data changes
                 } else {
                     loading.setVisibility(View.GONE);
+                    arrayListModel.add(new ClassListModel("Class Code", "Class Name", "Details", "Year","Subject Name", "20XX-2X"));// Modify according to your ClassListModel constructor
+                    adapter.notifyDataSetChanged(); // Notify the adapter of data changes
                     Toast.makeText(ClassMainActivity.this, "No classrooms found", Toast.LENGTH_SHORT).show();
                 }
             }
