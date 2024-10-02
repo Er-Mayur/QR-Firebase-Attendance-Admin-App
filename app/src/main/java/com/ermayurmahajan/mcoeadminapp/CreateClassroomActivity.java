@@ -51,7 +51,7 @@ public class CreateClassroomActivity extends AppCompatActivity {
     private Button btnCreateClassroom;
     private boolean isFormatting;
     private LottieAnimationView loading;
-
+    String classroomID;
     DatabaseReference userRef;
     FirebaseUser firebaseUser;
     private FirebaseDatabase database;
@@ -63,7 +63,7 @@ public class CreateClassroomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_classroom_activity);
-        getSupportActionBar().setTitle("Get Attendance");
+        getSupportActionBar().setTitle("Create Classroom");
 
         edtClassName = findViewById(R.id.edt_class_name);
         edtAcademicYear = findViewById(R.id.edt_academic_year);
@@ -221,9 +221,8 @@ public class CreateClassroomActivity extends AppCompatActivity {
                 } else {
                     loading.setVisibility(View.VISIBLE);
                     btnCreateClassroom.setEnabled(false);
-                    // Generate a unique class ID (for example, using current timestamp or a UUID)
-                    String classroomID = String.valueOf(System.currentTimeMillis());  // or UUID.randomUUID().toString();
-
+                    // Call to generate classroom ID and create classroom
+                    classroomID = generateClassroomId();
                     firebaseUser = auth.getCurrentUser();
                     userRef = teachersRef.child("AIML").child(firebaseUser.getUid());
 
@@ -262,6 +261,18 @@ public class CreateClassroomActivity extends AppCompatActivity {
 
 
 
+    }
+    // Method to generate classroom ID
+    private String generateClassroomId() {
+        Calendar calendar = Calendar.getInstance();
+        String day = String.format("%02d", calendar.get(Calendar.DAY_OF_MONTH));
+        String month = String.format("%02d", calendar.get(Calendar.MONTH) + 1);
+        String year = String.format("%02d", calendar.get(Calendar.YEAR) % 100); // Last two digits of the year
+        String hours = String.format("%02d", calendar.get(Calendar.HOUR_OF_DAY));
+        String minutes = String.format("%02d", calendar.get(Calendar.MINUTE));
+        String seconds = String.format("%02d", calendar.get(Calendar.SECOND));
+
+        return day + month + year + hours + minutes + seconds;
     }
 
     private void updateTeacherWithClassroomID(String teacherUID, String classroomID) {
