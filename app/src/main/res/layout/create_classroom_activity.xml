@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateClassroomActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/lin_academic_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    android:src="@drawable/create_classroom"/>
+                <TextView
+                    android:id="@+id/txt_create_classroom"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="@color/black"
+                    android:text="Create Classroom"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/edt_class_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_border_color_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Class Name"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_date_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/lin_academic_year">
+
+                <EditText
+                    android:id="@+id/edt_academic_year"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_calendar_month_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/black"
+                    android:hint="Academic Year 202X-2X"
+                    android:maxLength="7"
+                    android:inputType="date"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+                <Spinner
+                    android:id="@+id/spn_year"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/lin_date_class">
+
+                <Spinner
+                    android:id="@+id/spn_select"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:textSize="16sp" />
+
+
+                <Spinner
+                    android:id="@+id/spn_SEM"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
+                    android:drawableTint="@color/black"
+                    android:padding="5dp"
+                    android:paddingStart="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+
+            <Spinner
+                android:id="@+id/spn_subject"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/spinner_background"
+                android:drawableTint="@color/black"
+                android:padding="5dp"
+                android:paddingStart="10dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/lin_class"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_create_classroom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@+id/spn_subject"
+                android:drawableStart="@drawable/baseline_groups_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:padding="10dp"
+                android:clickable="true"
+                app:cardElevation="35dp"
+                android:background="@drawable/button_background"
+                android:text="Create Classrom"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loading.json"
+        app:lottie_loop="true" />
+</androidx.constraintlayout.widget.ConstraintLayout>

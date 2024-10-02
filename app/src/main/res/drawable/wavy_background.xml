@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="1080dp"
+    android:height="1920dp"
+    android:viewportWidth="1080"
+    android:viewportHeight="1920">
+
+    <!-- Light Blue Wave -->
+    <path
+        android:fillColor="#82B1FF"
+        android:pathData="M0,0h1080v1420c-80,-40 -160,40 -240,0s-160,-160 -240,-120 -160,80 -240,40S0,1460,0,1460z"/>
+
+    <!-- Mid Blue Wave -->
+    <path
+        android:fillColor="#0857F6"
+        android:pathData="M0,0h1080v1300c-80,-40 -160,40 -240,0s-160,-160 -240,-120 -160,80 -240,40S0,1340,0,1340z"/>
+
+    <!-- Dark Blue Wave -->
+    <path
+        android:fillColor="#0039A8"
+        android:pathData="M0,0h1080v1200c-80,-40 -160,40 -240,0s-160,-160 -240,-120 -160,80 -240,40S0,1240,0,1240z"/>
+</vector>

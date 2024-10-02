@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity  {
                                 if (roleTask.isSuccessful() && roleTask.getResult().exists()) {
                                     Toast.makeText(MainActivity.this, "Login successful: user is a teacher", Toast.LENGTH_SHORT).show();
                                     //Open user profile after successful registration
-                                    Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, ClassMainActivity.class);
                                     //To Prevent user from returning back to register Activity on pressing back button after registration
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(intent);
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity  {
             if (authProfile.getCurrentUser() != null) {
 
                 //Open user profile after successful registration
-                Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
+                Intent intent = new Intent(MainActivity.this, ClassMainActivity.class);
 
                 //To Prevent user from returning back to register Activity on pressing back button after registration
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

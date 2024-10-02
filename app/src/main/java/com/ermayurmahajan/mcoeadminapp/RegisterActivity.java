@@ -33,7 +33,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -200,21 +202,20 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     //Enter User Data into the Firebase Realtime Database
-                    writeDetails = new TeacherReadWriteDetails(textTeacherFullName, textDOB, textGenderSelected,  textTeacherMobileNumber, textEmail);
+                    writeDetails = new TeacherReadWriteDetails(textTeacherFullName, textDOB, textGenderSelected, textTeacherMobileNumber, textEmail);
+                    // Initialize the Map for the new teacher
+                    writeDetails.classroomIDs = new HashMap<>();
                     firebaseUser = auth.getCurrentUser();
                     userRef = teachersRef.child("AIML");
 
                     userRef.child(firebaseUser.getUid()).setValue(writeDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-
                             if (task.isSuccessful()) {
                                 loading.setVisibility(View.GONE);
                                 Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 //Open user profile after successful registration
-                                Intent intent = new Intent(RegisterActivity.this, AdminMainActivity.class);
-
-                                //To Prevent user from returning back to register Activity on pressing back button after registration
+                                Intent intent = new Intent(RegisterActivity.this, ClassMainActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish(); // to close Register Activity
@@ -222,7 +223,6 @@ public class RegisterActivity extends AppCompatActivity {
                                 loading.setVisibility(View.GONE);
                                 Toast.makeText(RegisterActivity.this, "Registration Failed. Please try again", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
                 }else {

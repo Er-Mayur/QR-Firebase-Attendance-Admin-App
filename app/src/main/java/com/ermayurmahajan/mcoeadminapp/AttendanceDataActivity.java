@@ -26,7 +26,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class AttendanceDataActivity extends AppCompatActivity {
-    ArrayList<ListModel> arrayListModel = new ArrayList<>();
+    private ArrayList<ListModel> arrayListModel = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerContactAdapter adapter;
     private ReadWriteDetails readUserDetails;

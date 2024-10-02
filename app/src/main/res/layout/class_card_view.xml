@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/main_card_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="80dp">
+
+        <RelativeLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_alignRight="@+id/gray_line">
+
+                <TextView
+                    android:id="@+id/txt_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Year"
+                    android:layout_marginBottom="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/txt_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Details"
+                    android:drawablePadding="5dp"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/gray_line"
+                android:layout_width="1dp"
+                android:layout_height="90dp"
+                android:background="@color/primary"
+                android:layout_marginLeft="105dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/gray_line">
+                <TextView
+                    android:id="@+id/txt_class_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:maxLines="1"
+                    android:text="Class Name"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/baseline_groups"
+                    android:drawablePadding="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_subject_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:maxLines="1"
+                    android:text="Subject Name"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:drawableStart="@drawable/outline_border_color"
+                    android:drawablePadding="10dp"/>
+
+                <TextView
+                    android:id="@+id/txt_classroomID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Classroom ID"
+                    android:drawableStart="@drawable/baseline_code_24"
+                    android:drawablePadding="10dp"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

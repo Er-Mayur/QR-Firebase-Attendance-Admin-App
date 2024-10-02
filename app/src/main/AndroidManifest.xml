@@ -21,6 +21,12 @@
         android:theme="@style/Theme.MCOEAdminApp"
         tools:targetApi="31">
         <activity
+            android:name=".CreateClassroomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClassMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
