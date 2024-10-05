@@ -1,11 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menu_stream"
+        android:icon="@drawable/outline_library_books_24"
+        android:title="Stream" />
+    <item
+        android:id="@+id/menu_attendance"
+        android:icon="@drawable/outline_qr_code_scanner_24"
+        android:title="Attendance" />
+    <item
         android:id="@+id/menu_class_info"
         android:icon="@drawable/outline_class_24"
         android:title="Class Info" />
-    <item
-        android:id="@+id/menu_attendance"
-        android:icon="@drawable/outline_library_books_24"
-        android:title="Attendance" />
+
 </menu>

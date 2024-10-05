@@ -52,6 +52,7 @@ public class ScannerActivity extends AppCompatActivity {
 
         // Get the Intent that started this activity
         Intent intent = getIntent();
+
         textAcademicYear = intent.getStringExtra("textAcademicYear");
         textCurrentDate = intent.getStringExtra("textCurrentDate");
         textYearSelected = intent.getStringExtra("textYearSelected");

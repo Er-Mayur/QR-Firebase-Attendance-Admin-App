@@ -1,7 +1,5 @@
 package com.ermayurmahajan.mcoeadminapp;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,20 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -47,7 +35,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -129,8 +116,6 @@ public class AttendanceFragment extends Fragment {
         int year = calendar.get(Calendar.YEAR);
         textCurrentDate = (day + "-" + (month + 1) + "-" + year);
 
-
-
         attendanceRef = database.getReference("Classroom").child(classroomID).child("Attendance");
         registerRef = database.getReference("Registered Students");
 
@@ -142,7 +127,6 @@ public class AttendanceFragment extends Fragment {
         barcodeView = view.findViewById(R.id.QR_scanner);
         btnAttendanceDone = view.findViewById(R.id.btn_attendance_done);
         mediaPlayer = MediaPlayer.create(getContext(), R.raw.beep_sound);
-
 
         btnAttendanceDone.setOnClickListener(new View.OnClickListener() {
             @Override

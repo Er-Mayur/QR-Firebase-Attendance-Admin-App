@@ -32,7 +32,7 @@ public class AttendanceDataActivity extends AppCompatActivity {
     private ReadWriteDetails readUserDetails;
     private FirebaseDatabase database;
     private DatabaseReference attendanceRef, registerRef, present, absent, studentIDToData;
-    private String textAcademicYear, textDate, textYearSelected, textSubjectSelected, textSelectSelected, textSEMSelected;
+    private String textClassName, textAcademicYear, textDate, textYearSelected, textSubjectSelected, textSelectSelected, textSEMSelected, classroomID;
     private String textStudentFullName, textRollNo, textBatch, textStudentMobileNumber;
     private TextView txtDetails, txtNoRecord;
     private LottieAnimationView loading;
@@ -41,7 +41,7 @@ public class AttendanceDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.attendance_data_activity);
-        getSupportActionBar().setTitle("Attendance Data");
+        getSupportActionBar().setTitle("Attendance List");
 
         recyclerView = findViewById(R.id.recycler_view);
         txtDetails = findViewById(R.id.txt_details);
@@ -52,21 +52,26 @@ public class AttendanceDataActivity extends AppCompatActivity {
 
         // Get the Intent that started this activity
         Intent intent = getIntent();
+
+        textClassName = intent.getStringExtra("textClassName");
         textAcademicYear = intent.getStringExtra("textAcademicYear");
         textDate = intent.getStringExtra("textDate");
-        textYearSelected = intent.getStringExtra("textYearSelected");
-        textSEMSelected = intent.getStringExtra("textSEMSelected");
-        textSelectSelected = intent.getStringExtra("textSelectSelected");
-        textSubjectSelected = intent.getStringExtra("textSubjectSelected");
+        textYearSelected = intent.getStringExtra("textYear");
+        textSEMSelected = intent.getStringExtra("textSem");
+        textSelectSelected = intent.getStringExtra("textDetails");
+        textSubjectSelected = intent.getStringExtra("textSubject");
+        classroomID = intent.getStringExtra("classroomID");
 
         txtDetails.setText(textAcademicYear+" "+textYearSelected+" "+textSEMSelected+" "+textSelectSelected+" "+textSubjectSelected+" "+textDate.replace("-","/"));
 
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
-        attendanceRef = database.getReference("Attendance");
         registerRef = database.getReference("Registered Students");
-        present = attendanceRef.child(textSelectSelected).child(textAcademicYear).child(textYearSelected).child(textSEMSelected).child(textSubjectSelected).child(textDate).child("Present");
-        absent = attendanceRef.child(textSelectSelected).child(textAcademicYear).child(textYearSelected).child(textSEMSelected).child(textSubjectSelected).child(textDate).child("Absent");
+
+        attendanceRef = database.getReference("Classroom").child(classroomID).child("Attendance").child(textDate);
+        present = attendanceRef.child("Present");
+        absent = attendanceRef.child("Absent");
+
         studentIDToData = registerRef.child(textAcademicYear).child(textYearSelected);
         setAbsentStudent();
     }

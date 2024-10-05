@@ -50,10 +50,16 @@ public class ClassRecyclerContactAdapter extends RecyclerView.Adapter<ClassRecyc
                 Intent intent = new Intent(context, AdminMainActivity.class);
 
                 // Optionally, pass any data to the AdminMainActivity
-                intent.putExtra("classroomID", arrayContactModel.get(position).textClassCode);
+                intent.putExtra("textClassName", arrayContactModel.get(position).textClassName);
                 intent.putExtra("textAcademicYear", arrayContactModel.get(position).textAcademicYear);
                 intent.putExtra("textYear", arrayContactModel.get(position).textYear);
-                intent.putExtra("textClassName", arrayContactModel.get(position).textClassName);
+                intent.putExtra("textDetails", arrayContactModel.get(position).textDetails);
+                intent.putExtra("textSem", arrayContactModel.get(position).textSem);
+                intent.putExtra("textSubject", arrayContactModel.get(position).textSubjectName);
+                intent.putExtra("classroomID", arrayContactModel.get(position).textClassCode);
+
+
+
 
 
                 context.startActivity(intent); // Start the AdminMainActivity

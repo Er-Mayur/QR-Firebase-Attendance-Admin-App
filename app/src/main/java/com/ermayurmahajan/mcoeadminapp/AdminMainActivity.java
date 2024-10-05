@@ -35,9 +35,15 @@ public class AdminMainActivity extends AppCompatActivity {
         // Create a Bundle to hold your data
         Bundle bundle = new Bundle();
         getSupportActionBar().setTitle(intent.getStringExtra("textClassName"));
-        bundle.putString("classroomID", intent.getStringExtra("classroomID")); // Example for a String
+
+        bundle.putString("textClassName", intent.getStringExtra("textClassName")); // Example for a String
         bundle.putString("textAcademicYear", intent.getStringExtra("textAcademicYear")); // Example for a String
         bundle.putString("textYear", intent.getStringExtra("textYear")); // Example for a String
+        bundle.putString("textDetails", intent.getStringExtra("textDetails")); // Example for a String
+        bundle.putString("textSem", intent.getStringExtra("textSem")); // Example for a String
+        bundle.putString("textSubject", intent.getStringExtra("textSubject")); // Example for a String
+        bundle.putString("classroomID", intent.getStringExtra("classroomID")); // Example for a String
+
 
 
 
@@ -50,7 +56,11 @@ public class AdminMainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 int itemID = item.getItemId();
-                if (itemID == R.id.menu_attendance) {
+                 if (itemID == R.id.menu_stream) {
+                    StreamFragment streamFragment = new StreamFragment();
+                     streamFragment.setArguments(bundle);
+                     startFragment(streamFragment);
+                } else if (itemID == R.id.menu_attendance) {
                     // Create a new instance of the AttendanceFragment
                     AttendanceFragment attendanceFragment = new AttendanceFragment();
                     // Set the arguments to the fragment
@@ -65,7 +75,7 @@ public class AdminMainActivity extends AppCompatActivity {
             }
 
         });
-       bottomNavView.setSelectedItemId(R.id.menu_class_info);
+       bottomNavView.setSelectedItemId(R.id.menu_stream);
     }
 
     public void startFragment(Fragment fragment){

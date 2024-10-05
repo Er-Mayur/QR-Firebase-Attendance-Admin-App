@@ -32,7 +32,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:drawableStart="@drawable/baseline_cloud_done_24"
+            android:drawableStart="@drawable/outline_qr_code_scanner_24"
             android:drawablePadding="10dp"
             android:drawableTint="@color/white"
             android:padding="10dp"
