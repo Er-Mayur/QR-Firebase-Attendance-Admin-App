@@ -233,7 +233,7 @@ public class AttendanceFragment extends Fragment {
                             // Check if the student ID is not in the presentStudentIds HashSet
                             if (!presentStudentIds.contains(studentId)) {
                                 // Add the student ID to the map of absent students
-                                absentStudents.put(studentId, true);
+                                absentStudents.put(studentId, false);
                             }
                         }
 
@@ -257,7 +257,6 @@ public class AttendanceFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        setAbsentStudent();
     }
     @Override
     public void onPause() {

@@ -2,12 +2,14 @@ package com.ermayurmahajan.mcoeadminapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +23,9 @@ public class AttendanceDisplayActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private ReadWriteDetails readUserDetails;
+
+    private LottieAnimationView loading;
+
 
     private ArrayList<DateListModel> arrayListModel = new ArrayList<DateListModel>();
     RecyclerView recyclerView;
@@ -45,6 +50,8 @@ public class AttendanceDisplayActivity extends AppCompatActivity {
         adapter = new DateRecyclerAdapter(AttendanceDisplayActivity.this, arrayListModel);
         recyclerView.setAdapter(adapter);
 
+
+        loading = findViewById(R.id.loading);
 
         // Get the Intent that started this activity
         Intent intent = getIntent();
@@ -75,6 +82,7 @@ public class AttendanceDisplayActivity extends AppCompatActivity {
                     // Get the key (which is the date)
                     String date = dateSnapshot.getKey();
                     arrayListModel.add(new DateListModel(date, classroomID, textClassName, textDetails, textYear, textSubject, textAcademicYear, textSem));// Modify according to your ClassListModel constructor
+                    loading.setVisibility(View.GONE);
                 }
                 adapter.notifyDataSetChanged(); // Notify the adapter of data changes
 

@@ -34,7 +34,7 @@ public class AttendanceDataActivity extends AppCompatActivity {
     private DatabaseReference attendanceRef, registerRef, present, absent, studentIDToData;
     private String textClassName, textAcademicYear, textDate, textYearSelected, textSubjectSelected, textSelectSelected, textSEMSelected, classroomID;
     private String textStudentFullName, textRollNo, textBatch, textStudentMobileNumber;
-    private TextView txtDetails, txtNoRecord;
+    private TextView txtDetails;
     private LottieAnimationView loading;
     boolean isPresent = false;
     @Override
@@ -45,7 +45,7 @@ public class AttendanceDataActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recycler_view);
         txtDetails = findViewById(R.id.txt_details);
-        txtNoRecord = findViewById(R.id.txt_no_record);
+
         loading = findViewById(R.id.loading);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(AttendanceDataActivity.this));
@@ -102,7 +102,6 @@ public class AttendanceDataActivity extends AppCompatActivity {
                 }
                 else if (!isPresent){
                     loading.setVisibility(View.GONE);
-                    txtNoRecord.setVisibility(View.VISIBLE);
                 }
             }
             @Override

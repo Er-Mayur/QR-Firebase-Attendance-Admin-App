@@ -166,24 +166,37 @@ public class ClassInfoFragment extends Fragment {
                 if (dataSnapshot.exists()){
                     for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
                         String studentId = studentSnapshot.getKey();
-                        DatabaseReference studentRef = registerRef.child(textAcademicYear).child(textYearSelected).child(studentId);
-                        studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot studentDataSnapshot) {
-                                if (studentDataSnapshot.exists()) {
-                                    ReadWriteDetails readUserDetails = studentDataSnapshot.getValue(ReadWriteDetails.class);
-                                    String studentName =  readUserDetails.textStudentFullName;
-                                    String parentNumber = "+91"+readUserDetails.textParentMobileNumber;
 
-                                    sendSMSToParent(parentNumber, studentName);
-                                    Toast.makeText(getContext(), "SMS send successfully to absent student", Toast.LENGTH_LONG).show();
+                        if (studentSnapshot.getValue().toString().equals("false")){
+
+                            DatabaseReference studentRef = registerRef.child(textAcademicYear).child(textYearSelected).child(studentId);
+                            studentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot studentDataSnapshot) {
+                                    if (studentDataSnapshot.exists()) {
+                                        ReadWriteDetails readUserDetails = studentDataSnapshot.getValue(ReadWriteDetails.class);
+                                        String studentName =  readUserDetails.textStudentFullName;
+                                        String parentNumber = "+91"+readUserDetails.textParentMobileNumber;
+
+                                        sendSMSToParent(parentNumber, studentName);
+                                        Toast.makeText(getContext(), "SMS send successfully to absent student", Toast.LENGTH_LONG).show();
+                                        // After SMS is sent, update the SMSStatus to true
+                                        absent.child(studentId).setValue(true).addOnCompleteListener(task -> {
+                                                    if (!task.isSuccessful()) {
+                                                        Toast.makeText(getContext(), "Failed to update SMS status for student: " + studentName, Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    }
                                 }
-                            }
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                                }
+                            });
+                        }else {
+                            Toast.makeText(getContext(), "SMS is already sent", Toast.LENGTH_LONG).show();
+                        }
+
                     }
                 }else {
                     Toast.makeText(getContext(), "Wrong details / No absent Students for this Year", Toast.LENGTH_SHORT).show();
