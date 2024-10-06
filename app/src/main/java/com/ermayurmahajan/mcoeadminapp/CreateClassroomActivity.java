@@ -263,6 +263,7 @@ public class CreateClassroomActivity extends AppCompatActivity {
 
     }
     // Method to generate classroom ID
+    @NonNull
     private String generateClassroomId() {
         Calendar calendar = Calendar.getInstance();
         String day = String.format("%02d", calendar.get(Calendar.DAY_OF_MONTH));

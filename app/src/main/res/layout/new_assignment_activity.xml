@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateClassroomActivity">
+    tools:context=".NewAssignmentActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                     android:layout_margin="0dp"
                     android:padding="0dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/create_classroom"/>
+                    android:src="@drawable/img"/>
                 <TextView
                     android:id="@+id/txt_create_classroom"
                     android:layout_width="match_parent"
@@ -37,24 +37,43 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="20dp"
                     android:textColor="@color/black"
-                    android:text="Create Classroom"
+                    android:text="Create New Assignment"
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/edt_class_name"
+                    android:id="@+id/edt_assignment_title"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/edit_text_background"
-                    android:drawableStart="@drawable/outline_border_color_24"
+                    android:drawableStart="@drawable/outline_title_24"
                     android:drawablePadding="10dp"
-                    android:drawableTint="@color/black"
-                    android:hint="Class Name"
+                    android:hint="Assignment Title"
                     android:padding="5dp"
                     android:paddingStart="10dp"
                     android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/edt_assignment_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_border_color"
+                    android:drawablePadding="10dp"
+                    android:paddingStart="10dp"
+                    android:ems="10"
+                    android:hint="Assignment Description"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine" />
 
             </LinearLayout>
             <LinearLayout
@@ -67,84 +86,65 @@
                 android:layout_below="@+id/lin_academic_year">
 
                 <EditText
-                    android:id="@+id/edt_academic_year"
-                    android:layout_width="130dp"
+                    android:id="@+id/edt_start_date"
+                    android:layout_width="140dp"
                     android:layout_height="50dp"
                     android:background="@drawable/edit_text_background"
                     android:drawableStart="@drawable/outline_calendar_month_24"
                     android:drawablePadding="10dp"
                     android:drawableTint="@color/black"
-                    android:hint="Academic Year 202X-2X"
-                    android:maxLength="7"
+                    android:hint="Start Date"
                     android:inputType="date"
                     android:padding="5dp"
                     android:paddingStart="10dp"
-                    android:textSize="16sp" />
-                <Spinner
-                    android:id="@+id/spn_year"
-                    android:layout_width="130dp"
+                    android:focusable="false"
+                    android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/edt_end_date"
+                    android:layout_width="140dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/spinner_background"
+                    android:background="@drawable/edit_text_background"
+                    android:drawableStart="@drawable/outline_calendar_month_24"
+                    android:drawablePadding="10dp"
                     android:drawableTint="@color/black"
+                    android:hint="Start Date"
+                    android:inputType="date"
                     android:padding="5dp"
                     android:paddingStart="10dp"
                     android:layout_marginLeft="20dp"
-                    android:textSize="16sp" />
-
-
+                    android:focusable="false"
+                    android:textSize="14sp" />
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/lin_class"
+
+            <!-- Button to Select Media Files -->
+            <Button
+                android:id="@+id/btn_select_media"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_centerHorizontal="true"
+                android:text="Select Media Files"
                 android:layout_margin="10dp"
-                android:layout_below="@+id/lin_date_class">
+                android:padding="12dp"
+                android:layout_below="@+id/lin_date_class"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:drawableStart="@drawable/outline_perm_media_24"
+                android:drawablePadding="10dp"
+                android:background="#A0B7D0"/>
 
-                <Spinner
-                    android:id="@+id/spn_select"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/spinner_background"
-                    android:drawableTint="@color/black"
-                    android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:textSize="16sp" />
-
-
-                <Spinner
-                    android:id="@+id/spn_SEM"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/spinner_background"
-                    android:drawableTint="@color/black"
-                    android:padding="5dp"
-                    android:paddingStart="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="16sp" />
-
-
-            </LinearLayout>
-
-
-            <Spinner
-                android:id="@+id/spn_subject"
-                android:layout_width="130dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="10dp"
+            <!-- RecyclerView to Display Selected Media Files -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_selected_media"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/spinner_background"
-                android:drawableTint="@color/black"
-                android:padding="5dp"
-                android:paddingStart="10dp"
-                android:textSize="16sp"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/lin_class"/>
+                android:scrollbars="vertical"
+                android:layout_below="@+id/btn_select_media"
+                android:layout_centerHorizontal="true"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_create_classroom"
+                android:id="@+id/btn_add_assignment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -153,15 +153,15 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:layout_below="@+id/spn_subject"
-                android:drawableStart="@drawable/baseline_groups_24"
+                android:layout_below="@+id/rv_selected_media"
+                android:drawableStart="@drawable/outline_assignment_24"
                 android:drawablePadding="10dp"
                 android:drawableTint="@color/white"
                 android:padding="10dp"
                 android:clickable="true"
                 app:cardElevation="35dp"
                 android:background="@drawable/button_background"
-                android:text="Create Classrom"
+                android:text="Add Assignment"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 

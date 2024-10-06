@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class AttendanceDisplayActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
-    private ReadWriteDetails readUserDetails;
 
     private LottieAnimationView loading;
 
@@ -31,7 +30,7 @@ public class AttendanceDisplayActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DateRecyclerAdapter adapter;
 
-    private DatabaseReference attendanceRef, registerRef, present, absent, studentIDToData;
+    private DatabaseReference attendanceRef;
 
 
     private String textAcademicYear, textYear, classroomID,textClassName, textDetails, textSem, textSubject;
@@ -66,10 +65,6 @@ public class AttendanceDisplayActivity extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
-        registerRef = database.getReference("Registered Students");
-        studentIDToData = registerRef.child(textAcademicYear).child(textYear);
-
-
         attendanceRef = database.getReference("Classroom").child(classroomID).child("Attendance");
 
         attendanceRef.addValueEventListener(new ValueEventListener() {

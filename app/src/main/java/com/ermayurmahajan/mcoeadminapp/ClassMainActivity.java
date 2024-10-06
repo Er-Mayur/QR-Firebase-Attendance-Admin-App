@@ -131,7 +131,7 @@ public class ClassMainActivity extends AppCompatActivity {
         });
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         // Fetch classrooms when the activity is resumed
         fetchClassrooms(currentTeacherUID);
